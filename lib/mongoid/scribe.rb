@@ -1,3 +1,7 @@
+require 'mongoid'
+
+require 'mongoid/scribe/selectable'
+require 'mongoid/scribe/contextual/mongo'
 require "mongoid/scribe/engine"
 
 module Mongoid

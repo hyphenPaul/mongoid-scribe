@@ -1,7 +1,7 @@
-module Mongoid
-  module Scribe
-    class ApplicationRecord < ActiveRecord::Base
-      self.abstract_class = true
-    end
-  end
-end
+#module Mongoid
+  #module Scribe
+    #class ApplicationRecord < ActiveRecord::Base
+      #self.abstract_class = true
+    #end
+  #end
+#end
