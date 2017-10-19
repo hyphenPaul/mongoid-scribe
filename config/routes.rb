@@ -1,3 +1,3 @@
 Mongoid::Scribe::Engine.routes.draw do
-  get '/explanations', to: 'explanations#index'
+  resources :explanations, only: [:index, :show]
 end

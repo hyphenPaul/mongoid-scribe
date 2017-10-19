@@ -1,5 +1,6 @@
 require File.expand_path("../../test/dummy/config/environment.rb", __FILE__)
 require "rails/test_help"
+require 'minitest/mock'
 
 # Filter out Minitest backtrace while allowing backtrace from other libraries
 # to be shown.
