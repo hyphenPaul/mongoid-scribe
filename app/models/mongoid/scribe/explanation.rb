@@ -5,11 +5,17 @@ module Mongoid
 
       delegate :original_fullpath, to: :request, allow_nil: true
 
-      field :name, type: String
-      field :orginal_fullpath, type: String, default: -> { original_fullpath }
+      field :path, type: String, default: -> { original_fullpath }
+      field :explanation, type: Hash
+      field :klass, type: String
+      field :selector, type: Hash
+      field :cached, type: Boolean
 
-      validates :original_fullpath, presence: true
-      validate :original_fullpath_whitelist
+      index({ path: 1 })
+
+      validates :path, presence: true
+      validates :explanation, presence: true
+      validate :path_in_engine_routes
       
       private
 
@@ -18,8 +24,8 @@ module Mongoid
       end
 
       def path_in_engine_routes
-        return unless RoutesParser.path_matches?(original_fullpath)
-        errors.add(:original_fullpath, 'must not match mongoid-scribe engine path')
+        return unless path && RoutesParser.path_matches?(path)
+        errors.add(:path, 'must not match mongoid-scribe engine path')
       end
     end
   end
