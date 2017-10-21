@@ -14,7 +14,7 @@ module Mongoid
             explanation: view.explain.to_hash,
             klass: @klass,
             selector: @criteria.selector.to_h,
-            cashed: cashed
+            cached: cached?
           )
         end
       end

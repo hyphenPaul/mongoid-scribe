@@ -1,5 +1,14 @@
-%h1 Explanations
+.container
+  %h2 Explanations
 
-%ul
-  - @explanations.each do |explanation|
-    %li= render 'mongoid/scribe/explanations/explanation', explanation: explanation
+  .table-responsive
+    %table{ class: 'table table-striped' }
+      %thead
+        %tr
+          %th Path
+          %th Query Class
+          %th Score
+          %th More
+
+        - @explanations.each do |explanation|
+          = render 'mongoid/scribe/explanations/explanation', explanation: explanation
