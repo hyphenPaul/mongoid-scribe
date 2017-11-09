@@ -8,7 +8,9 @@
           %th Path
           %th Query Class
           %th Score
+          %th Used Index
           %th More
 
         - @explanations.each do |explanation|
-          = render 'mongoid/scribe/explanations/explanation', explanation: explanation
+          = render 'mongoid/scribe/explanations/explanation', explanation: Mongoid::Scribe::ExplanationViewModel.new(explanation)
+          -#= render 'mongoid/scribe/explanations/explanation', explanation: view_model_for(explanation)
